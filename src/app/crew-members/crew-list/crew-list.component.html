@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let crew of crewMembers"><a (click)="onClickCrew(crew)">{{ crew.title.rendered | specialCharacters }}</a></li>
+      </ul>
+    </div>
+    <div class="col-md-8">
+        <app-crew-member [crewId]="activeCrewMember"></app-crew-member>
+    </div>
+  </div>
+</div>

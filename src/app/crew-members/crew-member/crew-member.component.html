@@ -1,0 +1,34 @@
+<div class="col-sm-8 offset-sm-2">
+    <div *ngIf="crewMember">
+      <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{ crewMember.title.rendered | specialCharacters }}</h3>
+          </div>
+          <div class="panel-body">
+            <img *ngIf="crewMember.featured_image_src" src="{{ crewMember.featured_image_src }}" alt="">
+            <img *ngIf="!crewMember.featured_image_src" src="{{ defaultFeaturedImage }}" alt="">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Rank: </strong>{{ crewMember.meta.rank }}</li>
+              <li class="list-group-item"><strong>Position: </strong>{{ crewMember.meta.position }}</li>
+              <li class="list-group-item"><strong>Home: </strong>{{ crewMember.meta.home }}</li>
+            </ul>
+            <!-- <p>{{ crewMember.content.rendered | wpTheContent }}></p> -->
+            <div class="panel-content" [innerHTML]="crewMember.content.rendered | wpTheContent">
+            </div>
+          </div>
+        </div>
+    </div>
+    <div *ngIf="!crewMember">
+      <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">Standing by...</h3>
+          </div>
+          <div class="panel-body">
+            <img src="{{ defaultFeaturedImage }}" alt="">
+            <div class="panel-content" >
+              Please select a crew member from the list.
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
