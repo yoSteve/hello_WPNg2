@@ -1,4 +1,5 @@
-# WpNg2
+# Hello_WPNg2
+Nothing fancy. Just looking for a way to connect an Angular2+ app to WordPress's new REST API (V2). I figured out how to use the REST API endpoints to access Custom Post Types, Custom Data Fields (generated with ACF), and Featured Image. Also created an Angular Pipe that transforms WP "The Content" calls into formatted HTML.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.1.
 
