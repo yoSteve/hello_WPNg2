@@ -52,7 +52,7 @@ function init_crew_member_cpt() {
       'exclude_from_search'   => false,
       'publicly_queryable'    => true,
       'capability_type'       => 'page',
-      'show_in_rest'          => true,
+      'show_in_rest'          => true, // exposes CPT to REST API
     );
     register_post_type( 'crew_member', $args );
 
@@ -61,7 +61,7 @@ function init_crew_member_cpt() {
 
 
 
-// Register Custom Fields
+// Expose Custom Fields to REST API
 add_action( 'rest_api_init', function() {
   register_rest_field( 'crew_member', 'meta', array(
       'get_callback' => function( $object ) {
@@ -73,7 +73,7 @@ add_action( 'rest_api_init', function() {
   ));
 });
 
-// Register Featured Image Field
+// Expose Featured Image Field to REST API
 add_action( 'rest_api_init', function() {
   register_rest_field( 'crew_member', 'featured_image_src', array(
       'get_callback' => function( $object ) {
