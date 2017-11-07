@@ -61,11 +61,11 @@ function init_crew_member_cpt() {
 
 
 
-// Expose Custom Fields to REST API
+// Expose Custom Fields to REST API - accessible by "meta" property
 add_action( 'rest_api_init', function() {
   register_rest_field( 'crew_member', 'meta', array(
       'get_callback' => function( $object ) {
-          $meta = get_post_meta($object['id']);
+          $meta = get_post_meta($object['id']); 
           return $meta;
       },
       'update_callback' => null,
@@ -73,7 +73,7 @@ add_action( 'rest_api_init', function() {
   ));
 });
 
-// Expose Featured Image Field to REST API
+// Expose Featured Image to REST API - accessible by "featured_image_src" property
 add_action( 'rest_api_init', function() {
   register_rest_field( 'crew_member', 'featured_image_src', array(
       'get_callback' => function( $object ) {
